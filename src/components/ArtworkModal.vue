@@ -2,13 +2,16 @@
     <div class="modal">
         <div class="modal-content">
             <span class="close-btn" @click="$emit('close')">&times;</span>
-            <div class="modal-body">
+            <div class="modal-body" v-if="artwork"> <!-- Ensure artwork is not null before rendering -->
                 <img :src="artwork.image" :alt="artwork.title" />
                 <div class="description">
                     <h2>{{ artwork.title }}</h2>
                     <p>{{ artwork.price }}</p>
                     <p>{{ artwork.description }}</p>
                 </div>
+            </div>
+            <div v-else>
+                <p>No artwork available.</p> <!-- Message for null artwork -->
             </div>
         </div>
     </div>
@@ -20,7 +23,7 @@ import { defineComponent, type PropType } from 'vue';
 export default defineComponent({
     props: {
         artwork: {
-            type: Object as PropType<{ title: string; image: string; price: string; description: string }>,
+            type: Object as PropType<{ title: string; image: string; price: string; description: string } | null>, // Allow null
             required: true
         }
     }
