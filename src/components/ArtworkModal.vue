@@ -71,7 +71,7 @@ export default defineComponent({
 }
 
 .modal-body img {
-    max-width: 400px;
+    max-width: 40%;
     height: auto;
     margin-right: 20px;
 }
@@ -79,5 +79,24 @@ export default defineComponent({
 .description {
     flex: 1;
     /* Allow the description to take the remaining space */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .modal-body {
+        flex-direction: column;
+        /* Stack image and text on smaller screens */
+        align-items: center;
+        /* Center-align items */
+    }
+
+    .modal-body img {
+        max-width: 100%;
+        /* Allow image to take full width on mobile */
+        margin-right: 0;
+        /* Remove margin on smaller screens */
+        margin-bottom: 20px;
+        /* Add space between image and description */
+    }
 }
 </style>
