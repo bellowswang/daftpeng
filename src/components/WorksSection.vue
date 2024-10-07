@@ -18,25 +18,25 @@ export default defineComponent({
         const artworks = [
             {
                 title: 'Mihave een Droom',
-                image: './src/assets/001_mihave_een_droom.jpeg',
+                image: 'https://images.bellowswang.com/001_mihave_een_droom.jpeg',
                 price: '€200',
                 description: 'Description of artwork 1'
             },
             {
                 title: 'Pablo Suze',
-                image: './src/assets/002_Pablo_Suze.jpeg',
+                image: 'https://images.bellowswang.com/002_Pablos_Suze.jpeg',
                 price: 'Not available',
                 description: 'Description of artwork 2'
             },
             {
                 title: 'Schaap',
-                image: './src/assets/003_schaap.jpg',
+                image: 'https://images.bellowswang.com/003_schaap.jpg',
                 price: 'Not available',
                 description: 'Description of artwork 3'
             },
             {
                 title: 'Pierogi and Sushi',
-                image: './src/assets/004_Pierogi_and_Sushi.jpg',
+                image: 'https://images.bellowswang.com/004_Pierogi_and_Sushi.jpg',
                 price: 'Not available',
                 description: 'Description of artwork 4'
             }
