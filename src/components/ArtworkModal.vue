@@ -50,10 +50,11 @@ export default defineComponent({
     background-color: white;
     padding: 20px;
     border-radius: 8px;
-    max-width: 800px;
+    max-width: 90%;
     width: 100%;
     position: relative;
     display: flex;
+    flex-direction: column;
 }
 
 .close-btn {
@@ -65,6 +66,7 @@ export default defineComponent({
 }
 
 .modal-body {
+    max-width: 100%;
     display: flex;
 }
 
