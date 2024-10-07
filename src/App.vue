@@ -1,47 +1,55 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div id="app">
+    <!-- Header -->
+    <AppHeader />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <!-- Main Content -->
+    <div ref="works" id="works-section">
+      <Works @show-artwork="showArtwork" />
     </div>
-  </header>
 
-  <main>
-    <TheWelcome />
-  </main>
+    <div ref="about" id="about-section">
+      <About />
+    </div>
+
+    <!-- Artwork Modal -->
+    <ArtworkModal v-if="showModal" :artwork="selectedArtwork" @close="closeModal" />
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
+<script lang="ts">
+import { ref } from 'vue';
+import AppHeader from './components/HeaderSection.vue';
+import Works from './components/WorksSection.vue';
+import About from './components/AboutSection.vue';
+import ArtworkModal from './components/ArtworkModal.vue';
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+export default {
+  components: {
+    AppHeader,
+    Works,
+    About,
+    ArtworkModal
+  },
+  setup() {
+    const showModal = ref(false);
+    const selectedArtwork = ref(null);
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    const showArtwork = (artwork: any) => {
+      selectedArtwork.value = artwork;
+      showModal.value = true;
+    };
+
+    const closeModal = () => {
+      showModal.value = false;
+    };
+
+    return { showModal, selectedArtwork, showArtwork, closeModal };
   }
+};
+</script>
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
+<style>
+@import './assets/main.css';
+/* Importing the global styles */
 </style>
