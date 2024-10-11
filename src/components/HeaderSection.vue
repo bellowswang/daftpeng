@@ -56,4 +56,22 @@ export default defineComponent({
     margin-left: 15px;
     cursor: pointer;
 }
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+    .header {
+        padding: 20px 20px;
+        /* Adjust padding for smaller screens */
+    }
+
+    .left h1 {
+        font-size: 18px;
+        /* Optional: Adjust font size for mobile */
+    }
+
+    .right a {
+        margin-left: 10px;
+        /* Optional: Adjust margin for mobile */
+    }
+}
 </style>
