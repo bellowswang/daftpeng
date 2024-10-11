@@ -1,66 +1,59 @@
 <template>
     <div class="header">
         <div class="left">
-            <h1>Daftpeng</h1>
+            <h1>Daftpeng/peng</h1>
         </div>
         <div class="right">
-            <a @click="scrollToSection('works')">Works</a>
-            <a @click="scrollToSection('about')">About</a>
+            <a @click="navigate('works')">Works</a>
+            <a @click="navigate('about')">About</a>
         </div>
     </div>
 </template>
 
 <script lang="ts">
-export default {
-    methods: {
-        scrollToSection(section: string) {
-            const sectionEl = document.getElementById(`${section}-section`);
-            sectionEl?.scrollIntoView({ behavior: 'smooth' });
-        }
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+    setup(props, { emit }) {
+        const navigate = (section: string) => {
+            emit('navigate', section);
+        };
+
+        return { navigate };
     }
-};
+});
 </script>
 
 <style scoped>
 .header {
     position: fixed;
-    /* Keeps the banner fixed at the top */
-    display: flex;
-    /* Enable flexbox layout */
-    justify-content: space-between;
-    /* Space between left and right */
-    align-items: center;
-    /* Center items vertically */
-    padding: 20px;
-    background-color: #f8f8f8;
-    /* Light grey background for the header */
+    top: 0;
+    left: 0;
     width: 100%;
-    /* Ensure the header spans the full width */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 300px;
+    background-color: #ffffff;
     z-index: 1000;
-    /* Ensure it stays on top of other elements */
+    /* Ensure the header stays on top */
+    /* Optional shadow for a floating effect */
 }
 
 .left {
-    flex: 1;
-    /* Allows the left section to take up space */
+    flex: 0.5;
 }
 
 .left h1 {
     font-size: 24px;
-    /* Title font size */
-    margin: 0;
-    /* Remove default margin */
 }
 
 .right {
     display: flex;
-    /* Align links horizontally */
 }
 
 .right a {
-    margin-left: 20px;
-    /* Space between links */
+    margin-left: 15px;
     cursor: pointer;
-    /* Change cursor to pointer on hover */
 }
 </style>
