@@ -1,26 +1,23 @@
 <template>
     <div class="about">
-        <h2>About Daftpeng</h2>
-        <p>Daftpeng (b. 1991) is a collage artist based in Amsterdam, the Netherlands. This website features her unique
-            works that
-            combine
-            various materials and textures into visually engaging compositions.</p>
+        <h3>About</h3>
+        <h3>Daftpeng | Huipeng Xu</h3>
+        <p>Born in Shanghai in 1991, Huipeng moved to Rotterdam in 2020 to study cultural economics. Since graduating,
+            she has worked as a product manager in tech. She started collage art creation in 2023. Hui is her name in
+            workplace while daftpeng is her pen name in arts.</p>
     </div>
 </template>
 
 <style scoped>
 .about {
-    padding: 20px;
-    background-color: #f8f8f8;
-    border-radius: 8px;
-    text-align: center;
+    padding: 20px 300px;
+    /* Add some padding for space */
+    margin-top: 120px;
+    /* Adds space between the top banner and the About section */
+    background-color: #ffffff;
 }
 
 p {
-    max-width: 800px;
-    /* Control the width of the paragraph */
     margin: 0 auto;
-    /* Center the paragraph block */
-    font-style: italic;
 }
 </style>

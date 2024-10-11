@@ -1,15 +1,15 @@
 <template>
   <div id="app">
     <!-- Header -->
-    <AppHeader />
+    <AppHeader @navigate="handleNavigation" />
 
     <!-- Main Content -->
-    <div ref="works" id="works-section">
-      <Works @show-artwork="showArtwork" />
+    <div v-if="activeSection === 'works'">
+      <Works :isSmallGrid="false" @show-artwork="showArtwork" />
     </div>
-
-    <div ref="about" id="about-section">
+    <div v-if="activeSection === 'about'">
       <About />
+      <Works :isSmallGrid="true" @show-artwork="showArtwork" />
     </div>
 
     <!-- Artwork Modal -->
@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import AppHeader from './components/HeaderSection.vue';
 import Works from './components/WorksSection.vue';
 import About from './components/AboutSection.vue';
@@ -34,6 +34,7 @@ export default {
   setup() {
     const showModal = ref(false);
     const selectedArtwork = ref(null);
+    const activeSection = ref('works'); // Default to showing the works section
 
     const showArtwork = (artwork: any) => {
       selectedArtwork.value = artwork;
@@ -44,10 +45,15 @@ export default {
       showModal.value = false;
     };
 
-    return { showModal, selectedArtwork, showArtwork, closeModal };
+    const handleNavigation = (section: string) => {
+      activeSection.value = section; // Switch between 'works' and 'about'
+    };
+
+    return { showModal, selectedArtwork, showArtwork, closeModal, activeSection, handleNavigation };
   }
 };
 </script>
+
 
 <style>
 @import './assets/main.css';

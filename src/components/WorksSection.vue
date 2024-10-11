@@ -1,6 +1,6 @@
 <template>
-    <div class="works">
-        <div class="artworks-section">
+    <div :class="worksClass">
+        <div :class="artworksGridClass">
             <div v-for="(art, index) in artworks" :key="index" class="artwork" @click="selectArtwork(art)">
                 <img :src="art.image" :alt="art.title" />
             </div>
@@ -9,36 +9,43 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, toRefs, computed } from 'vue';
 
 export default defineComponent({
-    props: [],
+    props: {
+        isSmallGrid: {
+            type: Boolean,
+            required: true
+        }
+    },
     emits: ['show-artwork'],
     setup(props, { emit }) {
+        const { isSmallGrid } = toRefs(props);
+
         const artworks = [
             {
-                title: 'Mihave een Droom',
+                title: 'Hi Have Een Droom',
                 image: 'https://images.bellowswang.com/001_mihave_een_droom.jpeg',
                 price: '€200',
-                description: 'Description of artwork 1'
+                description: 'Inspired by the best-known street poems in Rotterdam.'
             },
             {
-                title: 'Pablo Suze',
+                title: 'Pablo\'s Suze',
                 image: 'https://images.bellowswang.com/002_Pablos_Suze.jpeg',
                 price: 'Not available',
-                description: 'Description of artwork 2'
+                description: 'Loving the color and the texture Picasso chose in Glass and bottle of Suze.'
             },
             {
                 title: 'Schaap',
                 image: 'https://images.bellowswang.com/003_schaap.jpg',
                 price: 'Not available',
-                description: 'Description of artwork 3'
+                description: 'Sheep is me, me as a sheep.'
             },
             {
                 title: 'Pierogi and Sushi',
                 image: 'https://images.bellowswang.com/004_Pierogi_and_Sushi.jpg',
                 price: 'Not available',
-                description: 'Description of artwork 4'
+                description: 'To a lovely couple.'
             }
         ];
 
@@ -46,7 +53,15 @@ export default defineComponent({
             emit('show-artwork', art);
         };
 
-        return { artworks, selectArtwork };
+        const artworksGridClass = computed(() => {
+            return isSmallGrid.value ? 'artworks-section-small' : 'artworks-section';
+        });
+
+        const worksClass = computed(() => {
+            return isSmallGrid.value ? 'works-small' : 'works';
+        });
+
+        return { artworks, selectArtwork, artworksGridClass, worksClass };
     }
 });
 </script>
@@ -55,20 +70,31 @@ export default defineComponent({
 .works {
     display: flex;
     justify-content: center;
-    /* Center the entire works section */
+    /* Center in normal view */
     padding: 20px;
 }
 
+.works-small {
+    display: flex;
+    /* Maintain flex layout */
+    padding: 20px 300px;
+    /* Padding for small grid view */
+}
+
 .artworks-section {
-    margin-top: 20px;
+    margin-top: 50px;
     padding: 50px 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* Change to 2 columns */
     gap: 50px;
-    /* Space between items */
     justify-items: center;
-    /* Center items in each grid cell */
+}
+
+.artworks-section-small {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+    justify-items: center;
 }
 
 .artwork {
@@ -77,28 +103,28 @@ export default defineComponent({
     transition: transform 0.2s;
     cursor: pointer;
     width: 300px;
-    /* Fixed width for the artwork */
     aspect-ratio: 1 / 1;
-    /* Keep the artwork square */
     overflow: hidden;
-    /* Hide overflow to crop images */
+}
+
+.artworks-section-small .artwork {
+    width: 150px;
+    aspect-ratio: 1 / 1;
 }
 
 .artwork img {
     width: 100%;
-    /* Make image take full width of the container */
     height: 100%;
-    /* Ensure the image takes full height */
     object-fit: cover;
-    /* Maintain aspect ratio while covering */
-    border-radius: 5px;
-    /* Add some border radius */
 }
 
 @media (max-width: 768px) {
     .artworks-section {
         grid-template-columns: 1fr;
-        /* One column on smaller screens */
+    }
+
+    .artworks-section-small {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 </style>
