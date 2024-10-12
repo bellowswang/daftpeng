@@ -28,14 +28,14 @@ export default defineComponent({
 .header {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
+    padding: 20px;
+    width: 50%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 300px;
     background-color: #ffffff;
     z-index: 1000;
+    transform: translateX(50%);
     /* Ensure the header stays on top */
     /* Optional shadow for a floating effect */
 }

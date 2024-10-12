@@ -10,7 +10,9 @@
 
 <style scoped>
 .about {
-    padding: 20px 300px;
+    padding: 20px;
+    width: 50%;
+    transform: translateX(50%);
     /* Add some padding for space */
     margin-top: 120px;
     /* Adds space between the top banner and the About section */
