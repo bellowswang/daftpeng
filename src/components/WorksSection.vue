@@ -77,7 +77,9 @@ export default defineComponent({
 .works-small {
     display: flex;
     /* Maintain flex layout */
-    padding: 20px 300px;
+    padding: 20px;
+    width: 50%;
+    transform: translateX(50%);
     /* Padding for small grid view */
 }
 
