@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <div class="left">
-            <h1>Daftpeng/peng</h1>
+            <h1 @click="navigate('works')" class="clickable-title">Daftpeng/peng</h1>
         </div>
         <div class="right">
             <a @click="navigate('works')">Works</a>
@@ -55,6 +55,11 @@ export default defineComponent({
 .right a {
     margin-left: 15px;
     cursor: pointer;
+}
+
+.clickable-title {
+    cursor: pointer;
+    /* Optional: to indicate it's clickable */
 }
 
 /* Media query for mobile screens */
