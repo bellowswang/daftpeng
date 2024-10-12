@@ -20,4 +20,11 @@
 p {
     margin: 0 auto;
 }
+
+@media (max-width: 768px) {
+    .about {
+        padding: 20px 20px;
+        /* Reduce padding on smaller screens */
+    }
+}
 </style>
