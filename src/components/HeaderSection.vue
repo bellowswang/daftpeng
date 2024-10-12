@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <div class="left">
-            <h1>Daftpeng/peng</h1>
+            <h1 @click="navigate('works')" class="clickable-title">Daftpeng/peng</h1>
         </div>
         <div class="right">
             <a @click="navigate('works')">Works</a>
@@ -40,10 +40,6 @@ export default defineComponent({
     /* Optional shadow for a floating effect */
 }
 
-.left {
-    flex: 0.5;
-}
-
 .left h1 {
     font-size: 24px;
 }
@@ -57,21 +53,8 @@ export default defineComponent({
     cursor: pointer;
 }
 
-/* Media query for mobile screens */
-@media (max-width: 768px) {
-    .header {
-        padding: 20px 20px;
-        /* Adjust padding for smaller screens */
-    }
-
-    .left h1 {
-        font-size: 18px;
-        /* Optional: Adjust font size for mobile */
-    }
-
-    .right a {
-        margin-left: 10px;
-        /* Optional: Adjust margin for mobile */
-    }
+.clickable-title {
+    cursor: pointer;
+    /* Optional: to indicate it's clickable */
 }
 </style>
