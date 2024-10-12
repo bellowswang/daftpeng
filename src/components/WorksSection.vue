@@ -122,9 +122,19 @@ export default defineComponent({
     .artworks-section {
         grid-template-columns: 1fr;
     }
+}
 
+@media (max-width: 1200px) {
     .artworks-section-small {
         grid-template-columns: repeat(2, 1fr);
+        /* 2 artworks per row on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .artworks-section-small {
+        grid-template-columns: repeat(1, 1fr);
+        /* 1 artworks per row on smaller screens */
     }
 }
 </style>

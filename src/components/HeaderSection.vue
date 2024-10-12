@@ -40,10 +40,6 @@ export default defineComponent({
     /* Optional shadow for a floating effect */
 }
 
-.left {
-    flex: 0.5;
-}
-
 .left h1 {
     font-size: 24px;
 }
@@ -60,23 +56,5 @@ export default defineComponent({
 .clickable-title {
     cursor: pointer;
     /* Optional: to indicate it's clickable */
-}
-
-/* Media query for mobile screens */
-@media (max-width: 768px) {
-    .header {
-        padding: 20px 20px;
-        /* Adjust padding for smaller screens */
-    }
-
-    .left h1 {
-        font-size: 18px;
-        /* Optional: Adjust font size for mobile */
-    }
-
-    .right a {
-        margin-left: 10px;
-        /* Optional: Adjust margin for mobile */
-    }
 }
 </style>
