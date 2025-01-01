@@ -24,7 +24,7 @@ export default defineComponent({
 
         const artworks = [
             {
-                title: 'Hi Have Een Droom',
+                title: 'Mi Have Een Droom',
                 image: 'https://images.bellowswang.com/001_mihave_een_droom.jpeg',
                 price: '€200',
                 description: 'Inspired by the best-known street poems in Rotterdam.'
