@@ -26,25 +26,21 @@ export default defineComponent({
             {
                 title: 'Mi Have Een Droom',
                 image: 'https://images.bellowswang.com/001_mihave_een_droom.jpeg',
-                price: '€200',
                 description: 'Inspired by the best-known street poems in Rotterdam.'
             },
             {
                 title: 'Pablo\'s Suze',
                 image: 'https://images.bellowswang.com/002_Pablos_Suze.jpeg',
-                price: 'Not available',
                 description: 'Loving the color and the texture Picasso chose in Glass and bottle of Suze.'
             },
             {
                 title: 'Schaap',
                 image: 'https://images.bellowswang.com/003_schaap.jpg',
-                price: 'Not available',
                 description: 'Sheep is me, me as a sheep.'
             },
             {
                 title: 'Pierogi and Sushi',
                 image: 'https://images.bellowswang.com/004_Pierogi_and_Sushi.jpg',
-                price: 'Not available',
                 description: 'To a lovely couple.'
             }
         ];

@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import AppHeader from './components/HeaderSection.vue';
 import Works from './components/WorksSection.vue';
 import About from './components/AboutSection.vue';
