@@ -39,7 +39,7 @@ export default defineComponent({
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-    /* Dark semi-transparent background */
+    /* Dark background for the whole screen */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,56 +47,88 @@ export default defineComponent({
 }
 
 .modal-content {
-    background-color: white;
+    background-color: transparent;
+    /* Fully transparent background */
     padding: 20px;
-    border-radius: 8px;
-    max-width: 90%;
+    border-radius: 12px;
+    max-width: 600px;
     width: 100%;
     position: relative;
     display: flex;
     flex-direction: column;
+    /* Remove border and shadow */
+    border: none;
+    box-shadow: none;
 }
 
 .close-btn {
     position: absolute;
     top: 10px;
-    right: 20px;
+    right: 10px;
     font-size: 24px;
     cursor: pointer;
+    color: #fff;
+    /* White close icon for visibility */
 }
 
 .modal-body {
-    max-width: 100%;
     display: flex;
+    flex-direction: column;
+    /* Stack image and text vertically */
+    align-items: center;
+    /* Center content */
+    max-width: 100%;
 }
 
 .modal-body img {
-    max-width: 40%;
+    max-width: 80%;
+    /* Slightly smaller image to avoid it taking up too much space */
     height: auto;
-    margin-right: 20px;
+    margin-bottom: 15px;
+    /* Space between image and description */
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.modal-body img:hover {
+    transform: scale(1.05);
+    /* Slight zoom effect */
 }
 
 .description {
-    flex: 1;
-    /* Allow the description to take the remaining space */
+    text-align: center;
+    color: #fff;
+    /* White text for contrast on transparent background */
+    max-width: 90%;
 }
 
-/* Responsive adjustments */
+.description h2 {
+    margin: 10px 0;
+    font-size: 1.25rem;
+}
+
+.description p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+/* Mobile adjustments */
 @media (max-width: 600px) {
-    .modal-body {
-        flex-direction: column;
-        /* Stack image and text on smaller screens */
-        align-items: center;
-        /* Center-align items */
+    .modal-content {
+        max-width: 90%;
+        /* Modal takes 90% of the screen width on mobile */
+        padding: 15px;
     }
 
     .modal-body img {
         max-width: 100%;
-        /* Allow image to take full width on mobile */
-        margin-right: 0;
-        /* Remove margin on smaller screens */
-        margin-bottom: 20px;
-        /* Add space between image and description */
+        /* Image takes full width on small devices */
+        margin-bottom: 10px;
+    }
+
+    .description {
+        margin: 0 10px;
+        /* Add padding on mobile to avoid text touching edges */
     }
 }
 </style>
