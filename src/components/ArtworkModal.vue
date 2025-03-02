@@ -1,8 +1,7 @@
 <template>
-    <div class="modal">
+    <div class="modal" @click="$emit('close')">
         <div class="modal-content">
-            <span class="close-btn" @click="$emit('close')">&times;</span>
-            <div class="modal-body" v-if="artwork"> <!-- Ensure artwork is not null before rendering -->
+            <div class="modal-body" v-if="artwork">
                 <img :src="artwork.image" :alt="artwork.title" />
                 <div class="description">
                     <h2>{{ artwork.title }}</h2>
@@ -11,7 +10,7 @@
                 </div>
             </div>
             <div v-else>
-                <p>No artwork available.</p> <!-- Message for null artwork -->
+                <p>No artwork available.</p>
             </div>
         </div>
     </div>
@@ -23,7 +22,7 @@ import { defineComponent, type PropType } from 'vue';
 export default defineComponent({
     props: {
         artwork: {
-            type: Object as PropType<{ title: string; image: string; price: string; description: string } | null>, // Allow null
+            type: Object as PropType<{ title: string; image: string; price: string; description: string } | null>,
             required: true
         }
     }
@@ -56,19 +55,8 @@ export default defineComponent({
     position: relative;
     display: flex;
     flex-direction: column;
-    /* Remove border and shadow */
     border: none;
     box-shadow: none;
-}
-
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    cursor: pointer;
-    color: #fff;
-    /* White close icon for visibility */
 }
 
 .modal-body {
