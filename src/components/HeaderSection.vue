@@ -2,7 +2,7 @@
     <div class="header">
         <div class="header-content">
             <div class="left">
-                <h1 @click="navigate('works')" class="clickable-title">Daftpeng/peng</h1>
+                <h1 @click="navigate('works')" class="clickable-title">Daftpeng</h1>
             </div>
             <div class="right">
                 <a @click="navigate('works')">Works</a>
